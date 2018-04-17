@@ -8,7 +8,8 @@ from os.path import join, dirname, realpath
 from gamelib import const, data, build_room
 from gamelib.objects import Picture
 
-ClassType = {'Picture': Picture}
+ClassType = {'picture': Picture, 'picture_1': Picture, 'picture_2': Picture,
+                                                'picture_3': Picture}
 
 
 class GameWindow(object):
@@ -161,6 +162,7 @@ class Game(object):
         self.clock = window.clock
         self.dt = window.dt
         self.level_info =  yaml.load(open(data.filepath('Level', 'level_info.yaml')))
+        self.len = len(self.level_info.keys())
 
 
     def loop(self):
@@ -171,7 +173,7 @@ class Game(object):
 
 
 
-            if game_level <= 1:
+            if game_level <= self.len:
                 pygame.mixer.music.load(data.filepath('Audio', 'theme.mp3'))
                 pygame.mixer.music.set_volume(const.SOUND_VOLUME)
                 pygame.mixer.music.play(-1)
@@ -190,7 +192,7 @@ class Game(object):
                 pygame.mixer.music.play(-1)
                 self.lose_game()
 
-            elif game_level > 1:
+            elif game_level > self.len:
                 pygame.mixer.music.load(data.filepath('Audio', 'win.wav'))
                 pygame.mixer.music.set_volume(const.SOUND_VOLUME / 2)
                 pygame.mixer.music.play(-1)
@@ -292,12 +294,13 @@ class Level:
         # add objects into the map_
 
         for thing in self.level_info.keys():
+            img_name = self.level_info[thing]['name']
             width = self.level_info[thing]['width']
             height = self.level_info[thing]['height']
             screen_width = self.level_info[thing]['screen_width']
             screen_hight = self.level_info[thing]['screen_hight']
             trinket = ClassType[thing](width, height, screen_width, screen_hight,
-                                                                self.screen)
+                                                    thing, img_name, self.screen)
             self.rect_dict[thing] = trinket.button
             self.object_dict[thing] = trinket
 

@@ -1,7 +1,20 @@
 level_1:
-    Picture:
+    picture:
         name: 1_picture.png
         width: !!int 150
         height: !!int 140
         screen_width: !!int 100
+        screen_hight: !!int 150
+level_2:
+    picture_1:
+        name: 2_picture_1.png
+        width: !!int 150
+        height: !!int 140
+        screen_width: !!int 100
+        screen_hight: !!int 150
+    picture_2:
+        name: 2_picture_2.png
+        width: !!int 150
+        height: !!int 140
+        screen_width: !!int 500
         screen_hight: !!int 150

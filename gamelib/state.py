@@ -85,7 +85,7 @@ class State:
 
         if self.state_name == 'door':
             self.level.result = self.try_out_room()
-        if self.state_name == 'picture':
+        if self.state_name in ['picture', 'picture_1', 'picture_2', 'picture_3']:
             self.run_picture_state()
 
         #self.animation("exit", 71)
@@ -143,7 +143,7 @@ class State:
                     "State", "fail.png")), (100, 100))
         return_img = pygame.transform.scale(pygame.image.load(data.filepath(
                     "State", "return.png")), (300, 300))
-        password_len = len(img_info['password'])
+        password_len = len(str(img_info['password']))
         button = {}
         correction = ''
         result = False
@@ -213,7 +213,7 @@ class State:
             pygame.display.flip()
 
     def check_out(self, correction, password):
-        if str(correction) == password:
+        if str(correction) == str(password):
             return True
         else:
             return False

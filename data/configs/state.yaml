@@ -11,3 +11,22 @@ level_1:
         screen_width: !!int -20
         screen_hight: !!int -200
         password: 0748
+level_2:
+    picture_1:
+        name: 2_picture_1.png
+        width: !!int 700
+        hight: !!int 700
+        screen_width: !!int 0
+        screen_hight: !!int 0
+    picture_2:
+        name: 2_picture_2.png
+        width: !!int 700
+        hight: !!int 700
+        screen_width: !!int 0
+        screen_hight: !!int 0
+    door:
+        width: !!int 1000
+        hight: !!int 2000
+        screen_width: !!int -20
+        screen_hight: !!int -200
+        password: 39585

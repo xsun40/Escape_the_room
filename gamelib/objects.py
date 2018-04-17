@@ -8,13 +8,15 @@ except:
 from math import sqrt
 
 class Picture():
-    def __init__(self, width, height, screen_width, screen_hight, screen):
+    def __init__(self, width, height, screen_width, screen_hight, name, img_name,
+                                                                        screen):
+        self.name = name
         self.image = pygame.transform.scale(pygame.image.load(data.filepath(
-                              "Game", "picture.png")), (width, height))
+                              "Level", img_name)), (width, height))
         self.button = screen.blit(self.image, (screen_width, screen_hight))
 
     def start_game(self, level):
-        state.State(level, 'picture').run_state()
+        state.State(level, self.name).run_state()
 
 class Door():
     def __init__(self, image, screen):
