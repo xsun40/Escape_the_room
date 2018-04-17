@@ -1,0 +1,7 @@
+level_1:
+    Picture:
+        name: 1_picture.png
+        width: !!int 150
+        height: !!int 140
+        screen_width: !!int 100
+        screen_hight: !!int 150

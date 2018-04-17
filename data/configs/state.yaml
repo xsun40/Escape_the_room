@@ -1,0 +1,13 @@
+level_1:
+    picture:
+        name: 1_picture.png
+        width: !!int 700
+        hight: !!int 700
+        screen_width: !!int 0
+        screen_hight: !!int 0
+    door:
+        width: !!int 1000
+        hight: !!int 2000
+        screen_width: !!int -20
+        screen_hight: !!int -200
+        password: 0748
